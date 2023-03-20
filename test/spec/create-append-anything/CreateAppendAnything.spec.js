@@ -12,18 +12,12 @@ import Modeler from 'bpmn-js/lib/Modeler';
 
 import {
   BpmnPropertiesPanelModule,
-  BpmnPropertiesProviderModule,
-  ZeebePropertiesProviderModule,
-  ZeebeDescriptionProvider as DescriptionProvider
+  BpmnPropertiesProviderModule
 } from 'bpmn-js-properties-panel';
 
-import ZeebeBehaviorsModule from 'camunda-bpmn-js-behaviors/lib/camunda-cloud';
+import { CreateAppendAnythingModule } from 'lib/';
 
-import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
-
-import CreateAppendAnything from 'lib/';
-
-const singleStart = window.__env__ && window.__env__.SINGLE_START;
+const singleStart = window.__env__ && window.__env__.SINGLE_START === 'BPMN';
 
 insertCoreStyles();
 insertBpmnStyles();
@@ -54,15 +48,10 @@ describe('<CreateAppendAnything>', function() {
     const {
       shouldImport = true,
       additionalModules = [
-        ZeebeBehaviorsModule,
         BpmnPropertiesPanelModule,
         BpmnPropertiesProviderModule,
-        ZeebePropertiesProviderModule,
-        CreateAppendAnything
+        CreateAppendAnythingModule
       ],
-      moddleExtensions = {
-        zeebe: ZeebeModdle
-      },
       description = {},
       layout = {}
     } = options;
@@ -75,7 +64,6 @@ describe('<CreateAppendAnything>', function() {
         bindTo: document
       },
       additionalModules,
-      moddleExtensions,
       propertiesPanel: {
         parent: propertiesContainer,
         feelTooltipContainer: container,
@@ -109,12 +97,7 @@ describe('<CreateAppendAnything>', function() {
     const diagramXml = require('test/fixtures/simple.bpmn').default;
 
     // when
-    const result = await createModeler(
-      diagramXml,
-      {
-        description: DescriptionProvider
-      }
-    );
+    const result = await createModeler(diagramXml);
 
     // then
     expect(result.error).not.to.exist;

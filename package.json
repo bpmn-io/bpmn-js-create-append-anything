@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "all": "run-s lint test build",
     "test": "karma start karma.config.js",
     "lint": "eslint .",
     "dev": "npm test -- --auto-watch --no-single-run",
