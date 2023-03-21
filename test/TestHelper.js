@@ -124,6 +124,11 @@ export function insertBpmnStyles() {
     'bpmn-font.css',
     require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css').default
   );
+
+  insertCSS(
+    'element-template-chooser.css',
+    require('@bpmn-io/element-template-chooser/dist/element-template-chooser.css').default
+  );
 }
 
 export function bootstrapModeler(diagram, options, locals) {

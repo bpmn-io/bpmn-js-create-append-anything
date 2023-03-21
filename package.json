@@ -8,7 +8,9 @@
     "test": "karma start karma.config.js",
     "lint": "eslint .",
     "dev": "npm test -- --auto-watch --no-single-run",
-    "start": "cross-env SINGLE_START=true npm run dev",
+    "start": "npm run start:templates",
+    "start:bpmn": "cross-env SINGLE_START=BPMN npm run dev",
+    "start:templates": "cross-env SINGLE_START=templates npm run dev",
     "build": "rollup -c",
     "build:watch": "rollup -cw",
     "prepare": "run-s build"
@@ -69,5 +71,8 @@
     "sinon-chai": "^3.7.0",
     "webpack": "^5.76.2",
     "zeebe-bpmn-moddle": "^0.18.0"
+  },
+  "dependencies": {
+    "@bpmn-io/element-template-chooser": "^1.0.0"
   }
 }
