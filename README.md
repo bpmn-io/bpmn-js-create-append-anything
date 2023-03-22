@@ -6,19 +6,16 @@ This module extends [bpmn-js](https://github.com/bpmn-io/bpmn-js) with a create 
 
 ![screenshot](./resources/screenshot.png)
 
+
 ## Features
 
-### Create and append any BPMN element
+* Create any BPMN element from the palette
+* Append any BPMN element from the context pad
+* Fully keyboard navigatable (`CTRL+N` and `CTRL+A` to open the menus)
+* Integration with [element templates](https://github.com/bpmn-io/element-templates) through dedicated extension
+  * Create or append templated elements
+  * Apply template through the replace menu 
 
-* Create and append any BPMN element during modeling using the palette or the context pad.
-
-* Use the `CTRL+N` and `CTRL+A`  to open the create and append menus respectively.
-
-### Create and append element templates
-
-* Built on top of [element templates](https://docs.camunda.io/docs/components/modeler/desktop-modeler/element-templates/about-templates/).
-
-* As well as BPMN elements, you can create and append element templates. You can also apply element templates to existing elements via the replace menu.
 
 ## Installation
 
@@ -27,6 +24,7 @@ Install via npm:
 ```sh
 npm install bpmn-js-create-append-anything
 ```
+
 
 ## Usage
 
