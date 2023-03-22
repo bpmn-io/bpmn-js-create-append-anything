@@ -20,20 +20,21 @@ This module extends [bpmn-js](https://github.com/bpmn-io/bpmn-js) with a create 
 
 * As well as BPMN elements, you can create and append element templates. You can also apply element templates to existing elements via the replace menu.
 
-## Use Extension
+## Installation
 
 Install via npm:
 
-```
+```sh
 npm install bpmn-js-create-append-anything
 ```
 
-Use in your [bpmn-js](https://github.com/bpmn-io/bpmn-js) application:
+## Usage
+
+Use as an extension for [bpmn-js](https://github.com/bpmn-io/bpmn-js):
 
 ```javascript
 import {
-  CreateAppendAnythingModule,
-  CreateAppendElementTemplatesModule 
+  CreateAppendAnythingModule
 } from 'bpmn-js-create-append-anything';
 
 const modeler = new BpmnModeler({
@@ -45,7 +46,25 @@ const modeler = new BpmnModeler({
 });
 ```
 
-The `CreateAppendElementTemplatesModule` is only required if you want to use element templates. It relies on elementTemplates to be provided via additional setup, i.e. camunda-bpmn-js.
+If desired, integrate with [element templates](https://github.com/bpmn-io/element-templates):
+
+```javascript
+import {
+  CreateAppendAnythingModule
+  CreateAppendElementTemplatesModule
+} from 'bpmn-js-create-append-anything';
+
+const modeler = new BpmnModeler({
+  additionalModules: [
+    ...,
+    CreateAppendAnythingModule,
+    CreateAppendElementTemplatesModule
+  ]
+});
+```
+
+This relies on `elementTemplates` to be provided via an external module, i.e. [bpmn-js-properties-panel](https://github.com/bpmn-io/bpmn-js-properties-panel).
+
 
 ## Run locally
 
@@ -62,6 +81,7 @@ npm start
 # for regular BPMN elements only
 npm run start:bpmn
 ```
+
 
 ## License
 
