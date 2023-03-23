@@ -11,7 +11,7 @@
     "start": "npm run start:templates",
     "start:bpmn": "cross-env SINGLE_START=BPMN npm run dev",
     "start:templates": "cross-env SINGLE_START=templates npm run dev",
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "build:watch": "rollup -cw",
     "prepare": "run-s build"
   },
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@testing-library/preact": "^3.2.3",
     "bpmn-js": "^11.5.0",
     "bpmn-js-properties-panel": "^1.19.1",
