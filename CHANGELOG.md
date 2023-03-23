@@ -5,3 +5,7 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 ## Unreleased
 
 ___Note:__ Yet to be released changes appear here._
+
+## 0.1.0
+
+_Initial release_
