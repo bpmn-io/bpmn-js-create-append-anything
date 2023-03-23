@@ -2,6 +2,8 @@
 
 # bpmn-js-create-append-anything
 
+[![CI](https://github.com/bpmn-io/bpmn-js-create-append-anything/actions/workflows/CI.yml/badge.svg)](https://github.com/bpmn-io/bpmn-js-create-append-anything/actions/workflows/CI.yml)
+
 This module extends [bpmn-js](https://github.com/bpmn-io/bpmn-js) with a create and append anything modeling experience.
 
 ![screenshot](./resources/screenshot.png)
