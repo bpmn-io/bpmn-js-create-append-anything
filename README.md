@@ -13,7 +13,7 @@ This module extends [bpmn-js](https://github.com/bpmn-io/bpmn-js) with a create 
 
 * Create any BPMN element from the palette
 * Append any BPMN element from the context pad
-* Fully keyboard navigatable (`CTRL+N` and `CTRL+A` to open the menus)
+* Fully keyboard navigatable (`N` and `A` to open the menus)
 * Integration with [element templates](https://github.com/bpmn-io/element-templates) through dedicated extension
   * Create or append templated elements
   * Apply template through the replace menu 
