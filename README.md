@@ -1,5 +1,3 @@
-> This extension is a work in progress.
-
 # bpmn-js-create-append-anything
 
 [![CI](https://github.com/bpmn-io/bpmn-js-create-append-anything/actions/workflows/CI.yml/badge.svg)](https://github.com/bpmn-io/bpmn-js-create-append-anything/actions/workflows/CI.yml)
