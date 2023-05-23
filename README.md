@@ -48,7 +48,7 @@ If desired, integrate with [element templates](https://github.com/bpmn-io/elemen
 
 ```javascript
 import {
-  CreateAppendAnythingModule
+  CreateAppendAnythingModule,
   CreateAppendElementTemplatesModule
 } from 'bpmn-js-create-append-anything';
 
