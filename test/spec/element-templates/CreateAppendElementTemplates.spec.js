@@ -17,7 +17,7 @@ import {
   CloudElementTemplatesPropertiesProviderModule as ElementTemplatesProviderModule
 } from 'bpmn-js-properties-panel';
 
-import { CreateAppendElementTemplatesModule } from 'lib/';
+import { CreateAppendElementTemplatesModule, CreateAppendAnythingModule } from 'lib/';
 
 import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
 
@@ -62,6 +62,7 @@ describe('<CreateAppendAnything>', function() {
         ZeebePropertiesProviderModule,
         ElementTemplatesProviderModule,
         ElementTemplateChooserModule,
+        CreateAppendAnythingModule,
         CreateAppendElementTemplatesModule
       ],
       moddleExtensions = {
