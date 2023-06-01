@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.2.1
+
+* `FIX`: apply icon hover colors ([#10](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/10))
+
 ## 0.2.0
 
 * `FEAT`: load palette and context pad icons as html ([#7](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/7))
