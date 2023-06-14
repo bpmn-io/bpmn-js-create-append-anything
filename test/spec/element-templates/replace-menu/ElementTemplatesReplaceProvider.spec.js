@@ -27,6 +27,7 @@ import {
 import { CreateAppendElementTemplatesModule } from 'lib/';
 
 import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
+import { getBusinessObject } from 'bpmn-js/lib/util/ModelUtil';
 
 
 describe('<ElementTemplatesReplaceProvider>', function() {
@@ -216,21 +217,22 @@ describe('<ElementTemplatesReplaceProvider>', function() {
     }));
 
 
-    it('should unbind template', inject(function(elementRegistry) {
+    it('should remove template', inject(function(elementRegistry) {
 
       // given
-      const task = elementRegistry.get('ServiceTask_1');
-      const template = templates[0];
+      let task = elementRegistry.get('ServiceTask_1_template');
 
-      openPopup(task);
-      triggerAction(`replace.template-${template.id}`);
+      // then
+      expect(hasExtensionElements(task)).to.be.true;
 
       // when
       openPopup(task);
       triggerAction('replace-unlink-element-template');
 
       // then
-      expect(isTemplateApplied(task, template)).to.be.false;
+      task = elementRegistry.get('ServiceTask_1_template');
+      expect(isTemplateApplied(task, templates[0])).to.be.false;
+      expect(hasExtensionElements(task)).to.be.false;
     }));
 
 
@@ -352,4 +354,15 @@ function applyTemplate(element, template) {
 
     return elementTemplates.applyTemplate(element, template);
   });
+}
+
+function hasExtensionElements(element) {
+  const businessObject = getBusinessObject(element);
+  const extensionElements = businessObject.get('extensionElements');
+
+  if (!extensionElements) {
+    return false;
+  } else {
+    return true;
+  }
 }
