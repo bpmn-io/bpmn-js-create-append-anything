@@ -4,8 +4,8 @@ import {
   bootstrapModeler
 } from 'test/TestHelper';
 
-import diagramXML from './UnlinkTemplateReplaceProvider.bpmn';
-import templates from './UnlinkTemplateReplaceProvider.element-templates.json';
+import diagramXML from './RemoveTemplateReplaceProvider.bpmn';
+import templates from './RemoveTemplateReplaceProvider.element-templates.json';
 
 import { isString } from 'min-dash';
 
@@ -21,7 +21,7 @@ import { CreateAppendElementTemplatesModule } from 'lib/';
 import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
 
 
-describe('<UnlinkTemplateReplaceProvider>', function() {
+describe('<RemoveTemplateReplaceProvider>', function() {
 
   beforeEach(bootstrapModeler(diagramXML, {
     additionalModules: [
@@ -42,7 +42,7 @@ describe('<UnlinkTemplateReplaceProvider>', function() {
 
   describe('display', function() {
 
-    it('should not display unlink on plain task', inject(function(elementRegistry) {
+    it('should not display remove on plain task', inject(function(elementRegistry) {
 
       // given
       const task = elementRegistry.get('Task_1');
@@ -52,7 +52,7 @@ describe('<UnlinkTemplateReplaceProvider>', function() {
 
       // then
       const entries = Object.keys(getEntries());
-      expect(entries).not.to.include('replace-unlink-element-template');
+      expect(entries).not.to.include('replace-remove-element-template');
     }));
 
 
@@ -71,7 +71,7 @@ describe('<UnlinkTemplateReplaceProvider>', function() {
 
         // then
         const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-unlink-element-template');
+        const entryIndex = entries.indexOf('replace-remove-element-template');
 
         // should be displayed on top
         expect(entryIndex).to.be.lessThanOrEqual(2);
@@ -91,7 +91,7 @@ describe('<UnlinkTemplateReplaceProvider>', function() {
 
         // then
         const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-unlink-element-template');
+        const entryIndex = entries.indexOf('replace-remove-element-template');
 
         expect(entryIndex).to.eql(0);
       }));
@@ -110,7 +110,7 @@ describe('<UnlinkTemplateReplaceProvider>', function() {
 
         // then
         const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-unlink-element-template');
+        const entryIndex = entries.indexOf('replace-remove-element-template');
 
         expect(entryIndex).to.eql(0);
       }));

@@ -227,7 +227,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // when
       openPopup(task);
-      triggerAction('replace-unlink-element-template');
+      triggerAction('replace-remove-element-template');
 
       // then
       task = elementRegistry.get('ServiceTask_1_template');
