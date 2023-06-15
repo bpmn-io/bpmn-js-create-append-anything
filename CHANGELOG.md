@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 0.3.0
 
-* `FEAT`: base BPMN element entry removes element template instead of unlinking it
+* `FEAT`: base BPMN element entry removes element template instead of unlinking it ([#11](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/11))
 
 ## Breaking Changes
 
