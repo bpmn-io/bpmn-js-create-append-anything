@@ -61,7 +61,7 @@ const modeler = new BpmnModeler({
 });
 ```
 
-This relies on `elementTemplates` to be provided via an external module, i.e. [bpmn-js-properties-panel](https://github.com/bpmn-io/bpmn-js-properties-panel).
+This relies on `elementTemplates` to be provided via an external module, i.e. [bpmn-js-element-templates](https://github.com/bpmn-io/bpmn-js-element-templates).
 
 
 ## Run locally
