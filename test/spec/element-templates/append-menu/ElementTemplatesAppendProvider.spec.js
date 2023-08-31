@@ -19,9 +19,12 @@ import templates from 'test/fixtures/element-templates.json';
 import {
   BpmnPropertiesPanelModule,
   BpmnPropertiesProviderModule,
-  ZeebePropertiesProviderModule,
-  CloudElementTemplatesPropertiesProviderModule as ElementTemplatesProviderModule
+  ZeebePropertiesProviderModule
 } from 'bpmn-js-properties-panel';
+
+import {
+  CloudElementTemplatesPropertiesProviderModule as ElementTemplatesProviderModule
+} from 'bpmn-js-element-templates';
 
 import { CreateAppendElementTemplatesModule } from 'lib/';
 
