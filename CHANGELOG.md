@@ -6,10 +6,14 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
-# 0.4.0
+## 0.5.0
+
+* `FEAT`: update labels to be sentence case ([#17](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/17))
+* `CHORE`: update dependencies
+
+## 0.4.0
 
 * `FEAT`: move "Call Activity" to "Sub Processes" group in options menu ([#14](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/14))
-
 
 ## 0.3.0
 
