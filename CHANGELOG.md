@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.2
+
+* `FIX`: correct expanded subprocess icon ([#33](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/33))
+
 ## 0.5.1
 
 * `FIX`: use rule to decide whether to show context pad entry for appending ([#27](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/27))
