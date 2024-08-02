@@ -71,7 +71,7 @@
     "raw-loader": "^4.0.2",
     "rollup": "^4.9.1",
     "sinon": "^18.0.0",
-    "sinon-chai": "^3.7.0",
+    "sinon-chai": "^4.0.0",
     "webpack": "^5.89.0",
     "zeebe-bpmn-moddle": "^1.0.0"
   },
