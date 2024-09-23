@@ -42,7 +42,7 @@
   ],
   "module": "dist/index.es.js",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^26.0.0",
+    "@rollup/plugin-commonjs": "^28.0.0",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@testing-library/preact": "^3.2.3",
