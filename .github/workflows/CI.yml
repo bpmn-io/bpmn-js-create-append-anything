@@ -4,8 +4,8 @@ jobs:
   Build:
     strategy:
       matrix:
-        os: [ubuntu-latest ]
-        node-version: [16]
+        os: [ ubuntu-latest ]
+        node-version: [ 20 ]
 
     runs-on: ${{ matrix.os }}
 
