@@ -49,7 +49,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
 
     forEach([ 'a', 'A' ], function(key) {
 
-      it('should trigger append menu',
+      it(`should trigger append menu for ${key}`,
         inject(function(keyboard, popupMenu, elementRegistry, selection) {
 
           sinon.spy(popupMenu, 'open');
@@ -107,7 +107,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
 
     forEach([ 'n', 'N' ], function(key) {
 
-      it('should trigger create menu',
+      it(`should trigger create menu for <${key}>`,
         inject(function(keyboard, popupMenu) {
 
           sinon.spy(popupMenu, 'open');
