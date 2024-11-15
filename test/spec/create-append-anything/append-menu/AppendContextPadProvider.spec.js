@@ -41,7 +41,7 @@ describe('features/create-append-anything - append menu provider', function() {
       // when
       contextPad.trigger('click', padEvent('append'));
 
-      const padMenuRect = contextPad.getPad(element).html.getBoundingClientRect();
+      const padMenuRect = getPad().getBoundingClientRect();
       const replaceMenuRect = getPopupMenu().getBoundingClientRect();
 
       // then
@@ -64,7 +64,7 @@ describe('features/create-append-anything - append menu provider', function() {
         // when
         contextPad.open(element);
 
-        const padNode = contextPad.getPad(element).html;
+        const padNode = getPad();
 
         // then
         expect(padEntry(padNode, 'append')).not.to.exist;
@@ -86,7 +86,7 @@ describe('features/create-append-anything - append menu provider', function() {
         // when
         contextPad.open(element);
 
-        const padNode = contextPad.getPad(element).html;
+        const padNode = getPad();
 
         // then
         expect(padEntry(padNode, 'append')).to.exist;
@@ -103,17 +103,19 @@ function padEntry(element, name) {
 }
 
 function padEvent(entry) {
+  const target = padEntry(getPad(), entry);
 
-  return getBpmnJS().invoke(function(overlays) {
+  return {
+    target: target,
+    preventDefault: function() {},
+    clientX: 100,
+    clientY: 100
+  };
+}
 
-    const target = padEntry(overlays._overlayRoot, entry);
-
-    return {
-      target: target,
-      preventDefault: function() {},
-      clientX: 100,
-      clientY: 100
-    };
+function getPad() {
+  return getBpmnJS().invoke(function(canvas) {
+    return canvas.getContainer().querySelector('.djs-context-pad');
   });
 }
 
