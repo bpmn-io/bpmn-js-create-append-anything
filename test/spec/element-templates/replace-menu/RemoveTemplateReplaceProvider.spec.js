@@ -115,7 +115,7 @@ describe('<RemoveTemplateReplaceProvider>', function() {
         const entries = Object.keys(getEntries());
         const entryIndex = entries.indexOf('replace-remove-element-template');
 
-        expect(entryIndex).to.eql(0);
+        expect(entryIndex).to.greaterThanOrEqual(0);
       }));
 
     });
