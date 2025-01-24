@@ -48,9 +48,9 @@
     "@testing-library/preact": "^3.2.3",
     "babel-loader": "^9.2.1",
     "babel-plugin-istanbul": "^7.0.0",
-    "bpmn-js": "^18.0.0",
-    "bpmn-js-element-templates": "^2.0.0",
-    "bpmn-js-properties-panel": "^5.7.0",
+    "bpmn-js": "^18.2.0",
+    "bpmn-js-element-templates": "^2.5.1",
+    "bpmn-js-properties-panel": "^5.31.1",
     "cross-env": "^7.0.3",
     "downloadjs": "^1.4.7",
     "eslint": "^9.14.0",
@@ -73,7 +73,7 @@
     "sinon": "^18.0.1",
     "sinon-chai": "^3.7.0",
     "webpack": "^5.96.1",
-    "zeebe-bpmn-moddle": "^1.0.0"
+    "zeebe-bpmn-moddle": "^1.9.0"
   },
   "dependencies": {
     "@bpmn-io/element-template-chooser": "^1.0.0"
