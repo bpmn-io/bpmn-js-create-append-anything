@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-create-append-anything",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
