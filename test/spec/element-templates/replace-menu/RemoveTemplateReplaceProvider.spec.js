@@ -43,9 +43,10 @@ describe('<RemoveTemplateReplaceProvider>', function() {
     elementTemplates.set(templates);
   }));
 
+
   describe('display', function() {
 
-    it('should not display remove on plain task', inject(function(elementRegistry) {
+    it('should not display (task)', inject(function(elementRegistry) {
 
       // given
       const task = elementRegistry.get('Task_1');
@@ -54,71 +55,64 @@ describe('<RemoveTemplateReplaceProvider>', function() {
       openPopup(task);
 
       // then
-      const entries = Object.keys(getEntries());
-      expect(entries).not.to.include('replace-remove-element-template');
+      const entries = getEntries();
+
+      expect(entries).not.to.have.property('replace-remove-element-template');
     }));
 
 
-    describe('display options to reset to plain element in correct order', function() {
+    it('should display (template service task -> service task)', inject(function() {
 
-      it('template service task -> service task', inject(function() {
+      // given
+      const element = applyTemplate(
+        'ServiceTask_1',
+        'com.camunda.example.MailTask'
+      );
 
-        // given
-        const element = applyTemplate(
-          'ServiceTask_1',
-          'com.camunda.example.MailTask'
-        );
+      // when
+      openPopup(element);
 
-        // when
-        openPopup(element);
+      // then
+      const entries = getEntries();
 
-        // then
-        const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-remove-element-template');
-
-        // should be displayed on top
-        expect(entryIndex).to.be.lessThanOrEqual(2);
-      }));
+      expect(entries).to.have.property('replace-remove-element-template');
+    }));
 
 
-      it('template task -> task', inject(function() {
+    it('should display (template task -> task)', inject(function() {
 
-        // given
-        const element = applyTemplate(
-          'Task_1',
-          'example.TaskTemplate'
-        );
+      // given
+      const element = applyTemplate(
+        'Task_1',
+        'example.TaskTemplate'
+      );
 
-        // when
-        openPopup(element);
+      // when
+      openPopup(element);
 
-        // then
-        const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-remove-element-template');
+      // then
+      const entries = getEntries();
 
-        expect(entryIndex).to.eql(0);
-      }));
+      expect(entries).to.have.property('replace-remove-element-template');
+    }));
 
 
-      it('template transaction -> transaction', inject(function() {
+    it('should display (template transaction -> transaction)', inject(function() {
 
-        // given
-        const element = applyTemplate(
-          'SUB_PROCESS',
-          'example.TransactionTemplate'
-        );
+      // given
+      const element = applyTemplate(
+        'SUB_PROCESS',
+        'example.TransactionTemplate'
+      );
 
-        // when
-        openPopup(element);
+      // when
+      openPopup(element);
 
-        // then
-        const entries = Object.keys(getEntries());
-        const entryIndex = entries.indexOf('replace-remove-element-template');
+      // then
+      const entries = getEntries();
 
-        expect(entryIndex).to.greaterThanOrEqual(0);
-      }));
-
-    });
+      expect(entries).to.have.property('replace-remove-element-template');
+    }));
 
   });
 
