@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.6.0
+
+* `FEAT`: add ad-hoc subprocess entry ([#47](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/47))
+
 ## 0.5.2
 
 * `FIX`: correct expanded subprocess icon ([#33](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/33))
