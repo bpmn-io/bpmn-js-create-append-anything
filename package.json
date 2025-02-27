@@ -46,7 +46,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@testing-library/preact": "^3.2.3",
-    "babel-loader": "^9.2.1",
+    "babel-loader": "^10.0.0",
     "babel-plugin-istanbul": "^7.0.0",
     "bpmn-js": "^18.2.0",
     "bpmn-js-element-templates": "^2.5.1",
