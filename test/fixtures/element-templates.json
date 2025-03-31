@@ -77,29 +77,5 @@
       "first keyword",
       "another keyword"
     ]
-  },
-  {
-    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
-    "name": "Keyword & Search Template",
-    "id": "example.KeywordsSearchTemplate",
-    "appliesTo": [
-      "bpmn:Task"
-    ],
-    "properties": [],
-    "search": "search alias",
-    "keywords": [
-      "first keyword",
-      "another keyword"
-    ]
-  },
-  {
-    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
-    "name": "Search Template",
-    "id": "example.SearchTemplate",
-    "appliesTo": [
-      "bpmn:Task"
-    ],
-    "properties": [],
-    "search": "search alias"
   }
 ]
