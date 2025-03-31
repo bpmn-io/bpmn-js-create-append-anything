@@ -135,6 +135,25 @@ describe('<ElementTemplatesCreateProviderSpec>', function() {
 
   });
 
+  describe('search', function() {
+
+    it('should be searchable by keywords', inject(function(canvas) {
+
+      // given
+      const rootElement = canvas.getRootElement();
+
+      // when
+      openPopup(rootElement);
+
+      const entries = getEntries();
+      const entry = entries['create.template-example.KeywordsTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
+    }));
+
+  });
+
 });
 
 

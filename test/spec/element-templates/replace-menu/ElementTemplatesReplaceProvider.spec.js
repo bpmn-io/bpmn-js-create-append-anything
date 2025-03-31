@@ -65,7 +65,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       const entries = getTemplateEntries();
-      expect(entries).to.have.length(6);
+      expect(entries).to.have.length(7);
     }));
 
 
@@ -79,7 +79,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       const entries = getTemplateEntries();
-      expect(entries).to.have.length(5);
+      expect(entries).to.have.length(6);
     }));
 
 
@@ -96,7 +96,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       const entries = getTemplateEntries();
-      expect(entries).to.have.length(5);
+      expect(entries).to.have.length(6);
     }));
 
 
@@ -271,6 +271,26 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       expect(isTemplateApplied(task, template)).to.be.true;
+    }));
+
+  });
+
+
+  describe('search', function() {
+
+    it('should be searchable by keywords', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('Task_1');
+
+      // when
+      openPopup(task);
+
+      const entries = getEntries();
+      const entry = entries['replace.template-example.KeywordsTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
     }));
 
   });
