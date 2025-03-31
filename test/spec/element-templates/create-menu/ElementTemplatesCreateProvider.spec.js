@@ -135,6 +135,56 @@ describe('<ElementTemplatesCreateProviderSpec>', function() {
 
   });
 
+  describe('search', function() {
+
+    it('should merge search & keywords', inject(function(canvas) {
+
+      // given
+      const rootElement = canvas.getRootElement();
+
+      // when
+      openPopup(rootElement);
+
+      // when
+      const entries = getEntries();
+      const entry = entries['create.template-example.KeywordsSearchTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'search alias', 'first keyword', 'another keyword' ]);
+    }));
+
+    it('should be searchable by search', inject(function(canvas) {
+
+      // given
+      const rootElement = canvas.getRootElement();
+
+      // when
+      openPopup(rootElement);
+
+      const entries = getEntries();
+      const entry = entries['create.template-example.SearchTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'search alias' ]);
+    }));
+
+    it('should be searchable by keywords', inject(function(canvas) {
+
+      // given
+      const rootElement = canvas.getRootElement();
+
+      // when
+      openPopup(rootElement);
+
+      const entries = getEntries();
+      const entry = entries['create.template-example.KeywordsTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
+    }));
+
+  });
+
 });
 
 

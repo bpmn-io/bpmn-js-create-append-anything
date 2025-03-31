@@ -209,6 +209,57 @@ describe('<ElementTemplatesAppendProvider>', function() {
 
   });
 
+
+  describe('search', function() {
+
+    it('should merge search & keywords', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('Task_1');
+
+      openPopup(task);
+
+      // when
+      const entries = getEntries();
+      const entry = entries['append.template-example.KeywordsSearchTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'search alias', 'first keyword', 'another keyword' ]);
+    }));
+
+    it('should be searchable by search', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('Task_1');
+
+      openPopup(task);
+
+      // when
+      const entries = getEntries();
+      const entry = entries['append.template-example.SearchTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'search alias' ]);
+    }));
+
+    it('should be searchable by keywords', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('Task_1');
+
+      openPopup(task);
+
+      // when
+      const entries = getEntries();
+      const entry = entries['append.template-example.KeywordsTemplate'];
+
+      // then
+      expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
+    }));
+
+
+  });
+
 });
 
 
