@@ -20,7 +20,9 @@
     "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
     "name": "Participant Template",
     "id": "example.ParticipantTemplate",
-    "appliesTo": ["bpmn:Participant"],
+    "appliesTo": [
+      "bpmn:Participant"
+    ],
     "properties": [
       {
         "binding": {
@@ -34,7 +36,9 @@
     "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
     "name": "Start Event Template",
     "id": "example.StartEventTemplate",
-    "appliesTo": ["bpmn:StartEvent"],
+    "appliesTo": [
+      "bpmn:StartEvent"
+    ],
     "properties": [
       {
         "binding": {
@@ -59,6 +63,19 @@
           "name": "conditionExpression"
         }
       }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Keywords Template",
+    "id": "example.KeywordsTemplate",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "properties": [],
+    "keywords": [
+      "first keyword",
+      "another keyword"
     ]
   }
 ]
