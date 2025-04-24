@@ -41,6 +41,9 @@
     "dist"
   ],
   "module": "dist/index.es.js",
+  "peerDependencies": {
+    "diagram-js": ">= 15.3.0"
+  },
   "devDependencies": {
     "@bpmn-io/element-template-chooser": "^2.0.0",
     "@rollup/plugin-commonjs": "^28.0.1",
