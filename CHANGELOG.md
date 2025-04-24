@@ -6,6 +6,15 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.0
+
+* `FEAT`: source element template `keywords` during search ([#50](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/50))
+* `DEPS`: depend on `diagram-js>=15.3.0` ([#50](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/50))
+
+### Breaking Changes
+
+* Require `diagram-js>=15.3.0` as a peer dependency ([#50](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/50))
+
 ## 0.6.0
 
 * `FEAT`: add ad-hoc subprocess entry ([#47](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/47))
