@@ -42,13 +42,14 @@
   ],
   "module": "dist/index.es.js",
   "devDependencies": {
+    "@bpmn-io/element-template-chooser": "^2.0.0",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@testing-library/preact": "^3.2.3",
     "babel-loader": "^10.0.0",
     "babel-plugin-istanbul": "^7.0.0",
-    "bpmn-js": "^18.2.0",
+    "bpmn-js": "^18.6.0",
     "bpmn-js-element-templates": "^2.5.1",
     "bpmn-js-properties-panel": "^5.31.1",
     "cross-env": "^7.0.3",
@@ -74,8 +75,5 @@
     "sinon-chai": "^3.7.0",
     "webpack": "^5.96.1",
     "zeebe-bpmn-moddle": "^1.9.0"
-  },
-  "dependencies": {
-    "@bpmn-io/element-template-chooser": "^1.0.0"
   }
 }
