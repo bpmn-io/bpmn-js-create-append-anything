@@ -40,7 +40,7 @@ ___Note:__ Yet to be released changes appear here._
 
 * `FEAT`: base BPMN element entry removes element template instead of unlinking it ([#11](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/11))
 
-## Breaking Changes
+### Breaking Changes
 
 * `UnlinkTemplatesModule` has been renamed to `RemoveTemplatesModule`. If importing the module directly, update your import accordingly.
 
