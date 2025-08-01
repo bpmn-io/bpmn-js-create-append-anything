@@ -207,6 +207,48 @@ describe('<ElementTemplatesAppendProvider>', function() {
       expect(isTemplateApplied(newElement, template)).to.be.true;
     }));
 
+
+    describe('should trigger create mode', function() {
+
+      it('boundary event', inject(function(elementRegistry, eventBus) {
+
+        // given
+        const task = elementRegistry.get('Task_1');
+
+        const spy = sinon.spy();
+
+        eventBus.on('create.init', spy);
+
+        // when
+        openPopup(task);
+
+        triggerAction('append.template-example.MessageBoundaryEventTemplate');
+
+        // then
+        expect(spy).to.have.been.called;
+      }));
+
+
+      it('link intermediate catch event', inject(function(elementRegistry, eventBus) {
+
+        // given
+        const task = elementRegistry.get('Task_1');
+
+        const spy = sinon.spy();
+
+        eventBus.on('create.init', spy);
+
+        // when
+        openPopup(task);
+
+        triggerAction('append.template-example.LinkIntermediateCatchEventTemplate');
+
+        // then
+        expect(spy).to.have.been.called;
+      }));
+
+    });
+
   });
 
 

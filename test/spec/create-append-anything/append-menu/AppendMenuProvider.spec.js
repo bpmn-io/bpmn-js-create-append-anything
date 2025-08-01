@@ -430,7 +430,6 @@ describe('features/create-append-anything - append menu provider', function() {
 
           // then
           expect(spy).to.have.been.called;
-
         }));
 
 
@@ -450,7 +449,6 @@ describe('features/create-append-anything - append menu provider', function() {
 
           // then
           expect(spy).to.have.been.called;
-
         }));
 
       });
