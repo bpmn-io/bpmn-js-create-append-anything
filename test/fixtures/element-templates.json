@@ -11,7 +11,7 @@
         "type": "Boolean",
         "binding": {
           "type": "property",
-          "name": "customProperty"
+          "name": "foo"
         }
       }
     ]
@@ -34,7 +34,7 @@
       {
         "binding": {
           "type": "property",
-          "name": "someProp"
+          "name": "foo"
         }
       }
     ]
@@ -57,7 +57,7 @@
       {
         "binding": {
           "type": "property",
-          "name": "someProp"
+          "name": "foo"
         }
       }
     ]
@@ -97,6 +97,46 @@
     "keywords": [
       "first keyword",
       "another keyword"
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Message Boundary Event Template",
+    "id": "example.MessageBoundaryEventTemplate",
+    "appliesTo": [
+      "bpmn:BoundaryEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:BoundaryEvent",
+      "eventDefinition": "bpmn:MessageEventDefinition"
+    },
+    "properties": [
+      {
+        "binding": {
+          "type": "property",
+          "name": "foo"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Link Intermediate Catch Event Template",
+    "id": "example.LinkIntermediateCatchEventTemplate",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent",
+      "eventDefinition": "bpmn:LinkEventDefinition"
+    },
+    "properties": [
+      {
+        "binding": {
+          "type": "property",
+          "name": "foo"
+        }
+      }
     ]
   }
 ]
