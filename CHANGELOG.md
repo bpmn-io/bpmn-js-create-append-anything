@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.1
+
+* `FIX`: trigger create mode if auto place of element with template not possible ([#56](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/56))
+
 ## 1.0.0
 
 * `FEAT`: source element template `keywords` during search ([#50](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/50))
