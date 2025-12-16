@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.1.0
+
+* `FEAT`: use element templates logic to suggest replacement with template ([#62](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/62))
+* `FIX`: make scroll order follow the UI ([#53](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/53))
+
 ## 1.0.1
 
 * `FIX`: trigger create mode if auto place of element with template not possible ([#56](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/56))
