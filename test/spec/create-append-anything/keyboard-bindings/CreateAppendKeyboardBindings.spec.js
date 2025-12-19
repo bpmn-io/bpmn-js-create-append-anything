@@ -4,6 +4,9 @@ import {
   bootstrapModeler
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
 import { forEach } from 'min-dash';
 
 import {
@@ -14,7 +17,8 @@ import {
   query as domQuery
 } from 'min-dom';
 
-import { CreateAppendAnythingModule } from 'lib/';
+import { CreateAppendAnythingModule } from 'lib';
+
 
 describe('features/create-append-anything - keyboard bindings', function() {
 
@@ -52,7 +56,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
       it(`should trigger append menu for ${key}`,
         inject(function(keyboard, popupMenu, elementRegistry, selection) {
 
-          sinon.spy(popupMenu, 'open');
+          spy(popupMenu, 'open');
 
           // given
           const task = elementRegistry.get('Task_1');
@@ -73,7 +77,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
       it('should trigger create menu',
         inject(function(keyboard, popupMenu) {
 
-          sinon.spy(popupMenu, 'open');
+          spy(popupMenu, 'open');
 
           // given
           const e = createKeyEvent(key);
@@ -90,7 +94,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
       it('should not trigger create or append menus',
         inject(function(keyboard, popupMenu) {
 
-          sinon.spy(popupMenu, 'open');
+          spy(popupMenu, 'open');
 
           // given
           const e = createKeyEvent(key, { ctrlKey: true });
@@ -110,7 +114,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
       it(`should trigger create menu for <${key}>`,
         inject(function(keyboard, popupMenu) {
 
-          sinon.spy(popupMenu, 'open');
+          spy(popupMenu, 'open');
 
           // given
           const e = createKeyEvent(key);
@@ -127,7 +131,7 @@ describe('features/create-append-anything - keyboard bindings', function() {
       it('should not trigger create menu',
         inject(function(keyboard, popupMenu) {
 
-          sinon.spy(popupMenu, 'open');
+          spy(popupMenu, 'open');
 
           // given
           const e = createKeyEvent(key, { ctrlKey: true });

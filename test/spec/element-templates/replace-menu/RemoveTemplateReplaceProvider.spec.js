@@ -4,6 +4,8 @@ import {
   bootstrapModeler
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+
 import diagramXML from './RemoveTemplateReplaceProvider.bpmn';
 import templates from './RemoveTemplateReplaceProvider.element-templates.json';
 

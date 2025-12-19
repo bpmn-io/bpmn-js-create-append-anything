@@ -4,6 +4,9 @@ import {
   inject
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
 import CreateMenuModule from 'lib/create-append-anything/create-menu';
 
 import { createMoveEvent } from 'diagram-js/lib/features/mouse/Mouse';
@@ -22,7 +25,7 @@ describe('features/palette', function() {
     it('should trigger create menu', inject(function(popupMenu, canvas) {
 
       // given
-      const createSpy = sinon.spy(popupMenu, 'open');
+      const createSpy = spy(popupMenu, 'open');
 
       // when
       triggerPaletteEntry('create');

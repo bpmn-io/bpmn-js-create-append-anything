@@ -4,6 +4,8 @@ import {
   inject
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+
 import {
   query as domQuery
 } from 'min-dom';

@@ -5,6 +5,9 @@ import {
   createEvent as globalEvent
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
 
 import AppendMenuModule from 'lib/create-append-anything/append-menu';
 import CustomRulesModule from 'bpmn-js/test/util/custom-rules';
@@ -157,8 +160,8 @@ describe('features/create-append-anything - append menu provider', function() {
         // given
         const startEvent = elementRegistry.get('StartEvent');
         const outgoingFlows = getBusinessObject(startEvent).outgoing;
-        const createSpy = sinon.spy();
-        const endSpy = sinon.spy();
+        const createSpy = spy();
+        const endSpy = spy();
 
         eventBus.on('create.start', createSpy);
         eventBus.on('create.end', endSpy);
@@ -243,8 +246,8 @@ describe('features/create-append-anything - append menu provider', function() {
         // given
         const startEvent = elementRegistry.get('StartEvent');
         const outgoingFlows = getBusinessObject(startEvent).outgoing;
-        const createSpy = sinon.spy();
-        const endSpy = sinon.spy();
+        const createSpy = spy();
+        const endSpy = spy();
 
         eventBus.on('create.start', createSpy);
         eventBus.on('create.end', endSpy);
@@ -309,9 +312,9 @@ describe('features/create-append-anything - append menu provider', function() {
           // given
           const task = elementRegistry.get('Task');
 
-          const spy = sinon.spy();
+          const initSpy = spy();
 
-          eventBus.on('create.init', spy);
+          eventBus.on('create.init', initSpy);
 
           // when
           openPopup(task);
@@ -319,7 +322,7 @@ describe('features/create-append-anything - append menu provider', function() {
           triggerAction('append-event-subprocess');
 
           // then
-          expect(spy).to.have.been.called;
+          expect(initSpy).to.have.been.called;
 
         }));
 
@@ -353,8 +356,8 @@ describe('features/create-append-anything - append menu provider', function() {
         // given
         const startEvent = elementRegistry.get('StartEvent');
         const outgoingFlows = getBusinessObject(startEvent).outgoing;
-        const createSpy = sinon.spy();
-        const endSpy = sinon.spy();
+        const createSpy = spy();
+        const endSpy = spy();
 
         eventBus.on('create.start', createSpy);
         eventBus.on('create.end', endSpy);
@@ -419,9 +422,9 @@ describe('features/create-append-anything - append menu provider', function() {
           // given
           const task = elementRegistry.get('Task');
 
-          const spy = sinon.spy();
+          const initSpy = spy();
 
-          eventBus.on('create.init', spy);
+          eventBus.on('create.init', initSpy);
 
           // when
           openPopup(task);
@@ -429,7 +432,7 @@ describe('features/create-append-anything - append menu provider', function() {
           triggerAction('append-non-interrupting-message-boundary');
 
           // then
-          expect(spy).to.have.been.called;
+          expect(initSpy).to.have.been.called;
         }));
 
 
@@ -438,9 +441,9 @@ describe('features/create-append-anything - append menu provider', function() {
           // given
           const task = elementRegistry.get('Task');
 
-          const spy = sinon.spy();
+          const initSpy = spy();
 
-          eventBus.on('create.init', spy);
+          eventBus.on('create.init', initSpy);
 
           // when
           openPopup(task);
@@ -448,7 +451,7 @@ describe('features/create-append-anything - append menu provider', function() {
           triggerAction('append-link-intermediate-catch');
 
           // then
-          expect(spy).to.have.been.called;
+          expect(initSpy).to.have.been.called;
         }));
 
       });
@@ -480,8 +483,8 @@ describe('features/create-append-anything - append menu provider', function() {
         // given
         const startEvent = elementRegistry.get('StartEvent');
         const outgoingFlows = getBusinessObject(startEvent).outgoing;
-        const createSpy = sinon.spy();
-        const endSpy = sinon.spy();
+        const createSpy = spy();
+        const endSpy = spy();
 
         eventBus.on('create.start', createSpy);
         eventBus.on('create.end', endSpy);
@@ -565,8 +568,8 @@ describe('features/create-append-anything - append menu provider', function() {
         // given
         const startEvent = elementRegistry.get('StartEvent');
         const outgoingFlows = getBusinessObject(startEvent).outgoing;
-        const createSpy = sinon.spy();
-        const endSpy = sinon.spy();
+        const createSpy = spy();
+        const endSpy = spy();
 
         eventBus.on('create.start', createSpy);
         eventBus.on('create.end', endSpy);
