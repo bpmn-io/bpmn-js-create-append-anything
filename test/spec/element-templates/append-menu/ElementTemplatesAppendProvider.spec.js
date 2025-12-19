@@ -5,6 +5,9 @@ import {
   createEvent
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
 import {
   query as domQuery
 } from 'min-dom';
@@ -215,9 +218,9 @@ describe('<ElementTemplatesAppendProvider>', function() {
         // given
         const task = elementRegistry.get('Task_1');
 
-        const spy = sinon.spy();
+        const initSpy = spy();
 
-        eventBus.on('create.init', spy);
+        eventBus.on('create.init', initSpy);
 
         // when
         openPopup(task);
@@ -225,7 +228,7 @@ describe('<ElementTemplatesAppendProvider>', function() {
         triggerAction('append.template-example.MessageBoundaryEventTemplate');
 
         // then
-        expect(spy).to.have.been.called;
+        expect(initSpy).to.have.been.called;
       }));
 
 
@@ -234,9 +237,9 @@ describe('<ElementTemplatesAppendProvider>', function() {
         // given
         const task = elementRegistry.get('Task_1');
 
-        const spy = sinon.spy();
+        const initSpy = spy();
 
-        eventBus.on('create.init', spy);
+        eventBus.on('create.init', initSpy);
 
         // when
         openPopup(task);
@@ -244,7 +247,7 @@ describe('<ElementTemplatesAppendProvider>', function() {
         triggerAction('append.template-example.LinkIntermediateCatchEventTemplate');
 
         // then
-        expect(spy).to.have.been.called;
+        expect(initSpy).to.have.been.called;
       }));
 
     });

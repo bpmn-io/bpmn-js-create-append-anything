@@ -4,6 +4,9 @@ import {
   getBpmnJS
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
 import {
   query as domQuery
 } from 'min-dom';
@@ -31,7 +34,7 @@ describe('features/create-append-anything - editor actions', function() {
       const element = elementRegistry.get('StartEvent_1');
 
       selection.select(element);
-      const changedSpy = sinon.spy();
+      const changedSpy = spy();
 
       // when
       eventBus.once('popupMenu.open', changedSpy);
@@ -53,7 +56,7 @@ describe('features/create-append-anything - editor actions', function() {
       });
 
       selection.select(elements);
-      const changedSpy = sinon.spy();
+      const changedSpy = spy();
 
       // when
       eventBus.once('popupMenu.open', changedSpy);
@@ -69,7 +72,7 @@ describe('features/create-append-anything - editor actions', function() {
     it('should open create element if no selection', inject(function(editorActions, eventBus) {
 
       // given
-      const changedSpy = sinon.spy();
+      const changedSpy = spy();
 
       // when
       eventBus.once('popupMenu.open', changedSpy);
@@ -88,7 +91,7 @@ describe('features/create-append-anything - editor actions', function() {
       const element = elementRegistry.get('EndEvent_1');
 
       selection.select(element);
-      const changedSpy = sinon.spy();
+      const changedSpy = spy();
 
       // when
       eventBus.once('popupMenu.open', changedSpy);
@@ -108,7 +111,7 @@ describe('features/create-append-anything - editor actions', function() {
     it('should open create element', inject(function(editorActions, eventBus) {
 
       // given
-      const changedSpy = sinon.spy();
+      const changedSpy = spy();
       eventBus.once('popupMenu.open', changedSpy);
 
       // when

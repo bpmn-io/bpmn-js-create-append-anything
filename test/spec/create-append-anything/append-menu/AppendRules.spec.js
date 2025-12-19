@@ -3,6 +3,8 @@ import {
   inject
 } from 'test/TestHelper';
 
+import { expect } from 'chai';
+
 import AppendMenuModule from 'lib/create-append-anything/append-menu';
 
 
