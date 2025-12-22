@@ -1,4 +1,3 @@
-/* eslint-env node */
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const nodeResolve = require('@rollup/plugin-node-resolve');
