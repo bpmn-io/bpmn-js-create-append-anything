@@ -476,7 +476,7 @@ describe('features/create-append-anything - append menu provider', function() {
         expect(receiveTask.attachers || []).to.be.empty;
       }));
 
-      it('should auto-attach when element has no attachers and rules allow', inject(function(elementRegistry) {
+      it('should auto-attach when element has no attachers and rules allow', inject(function(elementRegistry, selection) {
 
         // given
         const task = elementRegistry.get('Task');
@@ -492,6 +492,11 @@ describe('features/create-append-anything - append menu provider', function() {
         // Boundary event should be attached
         expect(task.attachers).to.have.length(1);
         expect(task.attachers[0].type).to.equal('bpmn:BoundaryEvent');
+
+        // Boundary event should be selected
+        const boundaryEvent = task.attachers[0];
+        expect(selection.get()).to.have.length(1);
+        expect(selection.get()[0]).to.equal(boundaryEvent);
       }));
 
       it('should append via dragstart', inject(function(elementRegistry, eventBus) {
