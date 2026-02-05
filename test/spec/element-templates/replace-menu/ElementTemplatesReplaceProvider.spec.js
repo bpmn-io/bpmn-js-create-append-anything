@@ -385,7 +385,7 @@ function hasExtensionElements(element) {
   const businessObject = getBusinessObject(element);
   const extensionElements = businessObject.get('extensionElements');
 
-  if (!extensionElements) {
+  if (!extensionElements || !extensionElements.get('values').length) {
     return false;
   } else {
     return true;
