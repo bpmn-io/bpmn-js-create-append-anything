@@ -413,49 +413,156 @@ describe('features/create-append-anything - append menu provider', function() {
         // then
         expect(outgoingFlows).to.have.length(2);
       }));
+    });
+
+    describe('should trigger create mode', function() {
+      it('link intermediate catch event', inject(function(elementRegistry, eventBus) {
+
+        // given
+        const task = elementRegistry.get('Task');
+
+        const initSpy = spy();
+
+        eventBus.on('create.init', initSpy);
+
+        // when
+        openPopup(task);
+
+        triggerAction('append-link-intermediate-catch');
+
+        // then
+        expect(initSpy).to.have.been.called;
+      }));
+    });
 
 
-      describe('should trigger create mode', function() {
+    describe('boundary event', function() {
 
-        it('boundary event', inject(function(elementRegistry, eventBus) {
+      it('should NOT auto-attach when element already has attachers', inject(function(elementRegistry, eventBus) {
 
-          // given
-          const task = elementRegistry.get('Task');
+        // given
+        const taskWithBoundary = elementRegistry.get('TaskWithBoundary');
+        const createInitSpy = spy();
 
-          const initSpy = spy();
+        expect(taskWithBoundary.attachers).to.have.length(1);
 
-          eventBus.on('create.init', initSpy);
+        eventBus.on('create.init', createInitSpy);
 
-          // when
-          openPopup(task);
+        // when
+        openPopup(taskWithBoundary);
+        triggerAction('append-timer-boundary');
 
-          triggerAction('append-non-interrupting-message-boundary');
+        // then
+        // Should trigger create mode (manual placement) instead of auto-attach
+        expect(createInitSpy).to.have.been.called;
+        expect(taskWithBoundary.attachers).to.have.length(1);
+      }));
 
-          // then
-          expect(initSpy).to.have.been.called;
-        }));
+      it('should NOT auto-attach when rules disallow attachment', inject(function(elementRegistry, eventBus) {
 
+        // given
+        const receiveTask = elementRegistry.get('ReceiveTaskAfterGateway');
+        const createInitSpy = spy();
 
-        it('link intermediate catch event', inject(function(elementRegistry, eventBus) {
+        eventBus.on('create.init', createInitSpy);
 
-          // given
-          const task = elementRegistry.get('Task');
+        // when
+        openPopup(receiveTask);
+        triggerAction('append-timer-boundary');
 
-          const initSpy = spy();
+        // then
+        // Should trigger create mode (manual placement) because rules.allowed returns false
+        expect(createInitSpy).to.have.been.called;
+        expect(receiveTask.attachers || []).to.be.empty;
+      }));
 
-          eventBus.on('create.init', initSpy);
+      it('should auto-attach when element has no attachers and rules allow', inject(function(elementRegistry, selection) {
 
-          // when
-          openPopup(task);
+        // given
+        const task = elementRegistry.get('Task');
 
-          triggerAction('append-link-intermediate-catch');
+        // Verify task has no boundary events
+        expect(task.attachers || []).to.be.empty;
 
-          // then
-          expect(initSpy).to.have.been.called;
-        }));
+        // when
+        openPopup(task);
+        triggerAction('append-timer-boundary');
 
-      });
+        // then
+        // Boundary event should be attached
+        expect(task.attachers).to.have.length(1);
+        expect(task.attachers[0].type).to.equal('bpmn:BoundaryEvent');
 
+        // Boundary event should be selected
+        const boundaryEvent = task.attachers[0];
+        expect(selection.get()).to.have.length(1);
+        expect(selection.get()[0]).to.equal(boundaryEvent);
+      }));
+
+      it('should append via dragstart', inject(function(elementRegistry, eventBus) {
+
+        // given
+        const task = elementRegistry.get('Task');
+        const createSpy = spy();
+        const endSpy = spy();
+
+        eventBus.on('create.start', createSpy);
+        eventBus.on('create.end', endSpy);
+
+        expect(task.attachers || []).to.be.empty;
+
+        // when
+        openPopup(task);
+        placeBoundaryEventOnTask(task, 'append-timer-boundary');
+
+        // then
+        expect(createSpy).to.have.been.called;
+        expect(endSpy).to.have.been.called;
+        expect(task.attachers).to.have.length(1);
+      }));
+
+      it('should undo', inject(function(elementRegistry, commandStack) {
+
+        // given
+        const task = elementRegistry.get('Task');
+
+        expect(task.attachers || []).to.be.empty;
+
+        // when
+        openPopup(task);
+        triggerAction('append-timer-boundary');
+
+        // then
+        expect(task.attachers).to.have.length(1);
+
+        // when
+        commandStack.undo();
+
+        // then
+        expect(task.attachers).to.be.empty;
+      }));
+
+      it('should redo', inject(function(elementRegistry, commandStack) {
+
+        // given
+        const task = elementRegistry.get('Task');
+
+        expect(task.attachers || []).to.be.empty;
+
+        // when
+        openPopup(task);
+        triggerAction('append-timer-boundary');
+        commandStack.undo();
+
+        // then
+        expect(task.attachers).to.be.empty;
+
+        // when
+        commandStack.redo();
+
+        // then
+        expect(task.attachers).to.have.length(1);
+      }));
     });
 
 
@@ -683,5 +790,20 @@ function placeDragElement(element, action) {
   triggerAction(action, 'dragstart');
 
   dragging.hover({ element: processElement });
+  dragging.end();
+}
+
+function placeBoundaryEventOnTask(task, action) {
+  const dragging = getBpmnJS().get('dragging');
+  const elementRegistry = getBpmnJS().get('elementRegistry');
+
+  triggerAction(action, 'dragstart');
+
+  const taskGfx = elementRegistry.getGraphics(task);
+  dragging.hover({ element: task, gfx: taskGfx });
+
+  // Move to the bottom edge of the task (boundary position)
+  dragging.move(globalEvent(taskGfx, { x: task.x + task.width / 2, y: task.y + task.height }));
+
   dragging.end();
 }
