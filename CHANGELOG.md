@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.2.0
+
+* `FEAT`: auto-attach boundary events to the active element ([#64](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/64))
+
 ## 1.1.0
 
 * `FEAT`: use element templates logic to suggest replacement with template ([#62](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/62))
