@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 1.2.0
 
-* `FEAT`: auto-attach boundary events to the active element ([#64](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/64))
+* `FEAT`: auto-attach boundary events to the active element ([#69](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/69))
 
 ## 1.1.0
 
