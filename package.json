@@ -58,7 +58,7 @@
     "chai": "^6.2.2",
     "cross-env": "^10.1.0",
     "downloadjs": "^1.4.7",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-plugin-bpmn-io": "^2.2.0",
     "file-drops": "^0.7.0",
     "karma": "^6.4.4",
