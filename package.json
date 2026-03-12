@@ -11,6 +11,8 @@
     "start": "npm run start:templates",
     "start:bpmn": "cross-env SINGLE_START=BPMN npm run dev",
     "start:templates": "cross-env SINGLE_START=templates npm run dev",
+    "start:camunda-templates": "cross-env SINGLE_START=camunda-templates npm run dev",
+    "download:camunda-templates": "node scripts/download-camunda-templates.js",
     "build": "rollup -c --bundleConfigAsCjs",
     "build:watch": "rollup -cw",
     "prepare": "run-s build"

@@ -3,7 +3,8 @@ import bpmnIoPlugin from 'eslint-plugin-bpmn-io';
 const files = {
   build: [
     '*.js',
-    '*.mjs'
+    '*.mjs',
+    'scripts/**/*.js'
   ],
   ignored: [
     'dist',
