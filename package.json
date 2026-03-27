@@ -52,7 +52,7 @@
     "@testing-library/preact": "^3.2.4",
     "babel-loader": "^10.0.0",
     "babel-plugin-istanbul": "^7.0.1",
-    "bpmn-js": "^18.12.1",
+    "bpmn-js": "^18.14.0",
     "bpmn-js-element-templates": "^2.22.0",
     "bpmn-js-properties-panel": "^5.53.0",
     "chai": "^6.2.2",
