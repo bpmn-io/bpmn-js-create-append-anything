@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@bpmn-io/element-template-chooser": "^2.1.0",
-    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@testing-library/preact": "^3.2.4",
@@ -73,7 +73,7 @@
     "npm-run-all2": "^8.0.4",
     "puppeteer": "^24.41.0",
     "raw-loader": "^4.0.2",
-    "rollup": "^4.57.1",
+    "rollup": "^4.60.1",
     "sinon": "^21.1.2",
     "sinon-chai": "^4.0.1",
     "webpack": "^5.106.2",
