@@ -50,7 +50,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@testing-library/preact": "^3.2.4",
-    "babel-loader": "^10.0.0",
+    "babel-loader": "^10.1.1",
     "babel-plugin-istanbul": "^8.0.0",
     "bpmn-js": "^18.14.0",
     "bpmn-js-element-templates": "^2.23.1",
@@ -76,7 +76,7 @@
     "rollup": "^4.57.1",
     "sinon": "^21.0.1",
     "sinon-chai": "^4.0.1",
-    "webpack": "^5.105.0",
+    "webpack": "^5.106.2",
     "zeebe-bpmn-moddle": "^1.12.0"
   }
 }
