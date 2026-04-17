@@ -71,7 +71,7 @@
     "mocha": "^11.7.5",
     "mocha-test-container-support": "^0.2.0",
     "npm-run-all2": "^8.0.4",
-    "puppeteer": "^24.37.0",
+    "puppeteer": "^24.41.0",
     "raw-loader": "^4.0.2",
     "rollup": "^4.57.1",
     "sinon": "^21.1.2",
