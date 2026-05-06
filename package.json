@@ -74,7 +74,7 @@
     "puppeteer": "^24.41.0",
     "raw-loader": "^4.0.2",
     "rollup": "^4.60.1",
-    "sinon": "^21.1.2",
+    "sinon": "^22.0.0",
     "sinon-chai": "^4.0.1",
     "webpack": "^5.106.2",
     "zeebe-bpmn-moddle": "^1.12.0"
