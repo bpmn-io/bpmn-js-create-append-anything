@@ -6,6 +6,8 @@ import {
 
 import { expect } from 'chai';
 
+import { stub } from 'sinon';
+
 import {
   query as domQuery
 } from 'min-dom';
@@ -67,7 +69,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       const entries = getTemplateEntries();
-      expect(entries).to.have.length(7);
+      expect(entries).to.have.length(8);
     }));
 
 
@@ -98,7 +100,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
 
       // then
       const entries = getTemplateEntries();
-      expect(entries).to.have.length(6);
+      expect(entries).to.have.length(7);
     }));
 
 
@@ -294,6 +296,109 @@ describe('<ElementTemplatesReplaceProvider>', function() {
       // then
       expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
     }));
+
+  });
+
+
+  describe('steps and presets', function() {
+
+    it('should expose nested entries for a template with steps', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('ServiceTask_1');
+
+      // when
+      openPopup(task);
+
+      // then
+      const entry = getEntries()['replace.template-example.StepsTemplate'];
+
+      expect(entry.entries).to.exist;
+      expect(entry.action).not.to.exist;
+    }));
+
+
+    it('should apply template with the selected preset', inject(
+      function(elementRegistry, elementTemplates) {
+
+        // given
+        const task = elementRegistry.get('ServiceTask_1');
+
+        openPopup(task);
+
+        const applyTemplate = stub(elementTemplates, 'applyTemplate');
+
+        // Issues > Create Issue
+        const leaf = getEntries()['replace.template-example.StepsTemplate']
+          .entries['step-0'].entries['step-0'];
+
+        // when
+        leaf.action();
+
+        // then
+        expect(applyTemplate).to.have.been.calledOnce;
+
+        const [ element, template, options ] = applyTemplate.firstCall.args;
+
+        expect(element).to.equal(task);
+        expect(template.id).to.equal('example.StepsTemplate');
+        expect(options).to.eql({ presetId: 'createIssue' });
+      }
+    ));
+
+
+    it('should still display steps template when already applied', inject(
+      function(elementRegistry, elementTemplates) {
+
+        // given
+        const template = templates.find(t => t.id === 'example.StepsTemplate');
+
+        let task = elementRegistry.get('ServiceTask_1');
+        task = elementTemplates.applyTemplate(task, template, { presetId: 'createIssue' });
+
+        // when
+        openPopup(task);
+
+        // then
+        const entry = getEntries()['replace.template-example.StepsTemplate'];
+
+        expect(entry).to.exist;
+        expect(entry.entries).to.exist;
+        expect(entry.action).not.to.exist;
+      }
+    ));
+
+
+    it('should apply a different operation when already applied', inject(
+      function(elementRegistry, elementTemplates) {
+
+        // given
+        const template = templates.find(t => t.id === 'example.StepsTemplate');
+
+        let task = elementRegistry.get('ServiceTask_1');
+        task = elementTemplates.applyTemplate(task, template, { presetId: 'createIssue' });
+
+        openPopup(task);
+
+        const applyTemplate = stub(elementTemplates, 'applyTemplate');
+
+        // Issues > Delete Issue
+        const leaf = getEntries()['replace.template-example.StepsTemplate']
+          .entries['step-0'].entries['step-1'];
+
+        // when
+        leaf.action();
+
+        // then
+        expect(applyTemplate).to.have.been.calledOnce;
+
+        const [ element, appliedTemplate, options ] = applyTemplate.firstCall.args;
+
+        expect(element).to.equal(task);
+        expect(appliedTemplate.id).to.equal('example.StepsTemplate');
+        expect(options).to.eql({ presetId: 'deleteIssue' });
+      }
+    ));
 
   });
 

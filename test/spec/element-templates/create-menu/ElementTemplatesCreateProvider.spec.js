@@ -8,6 +8,8 @@ import {
 
 import { expect } from 'chai';
 
+import { stub } from 'sinon';
+
 import {
   query as domQuery
 } from 'min-dom';
@@ -153,6 +155,55 @@ describe('<ElementTemplatesCreateProviderSpec>', function() {
       // then
       expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
     }));
+
+  });
+
+
+  describe('steps and presets', function() {
+
+    it('should expose nested entries for a template with steps', inject(function(canvas) {
+
+      // given
+      const rootElement = canvas.getRootElement();
+
+      // when
+      openPopup(rootElement);
+
+      // then
+      const entry = getEntries()['create.template-io.camunda.connectors.GitHub.v1'];
+
+      expect(entry.entries).to.exist;
+      expect(entry.action).not.to.exist;
+    }));
+
+
+    it('should create element with the selected preset', inject(
+      function(canvas, elementTemplates, create) {
+
+        // given
+        const rootElement = canvas.getRootElement();
+
+        openPopup(rootElement);
+
+        const createElement = stub(elementTemplates, 'createElement');
+        stub(create, 'start');
+
+        // Issues > Create an issue
+        const leaf = getEntries()['create.template-io.camunda.connectors.GitHub.v1']
+          .entries['step-0'].entries['step-0'];
+
+        // when
+        leaf.action.click();
+
+        // then
+        expect(createElement).to.have.been.calledOnce;
+
+        const [ template, options ] = createElement.firstCall.args;
+
+        expect(template.id).to.equal('io.camunda.connectors.GitHub.v1');
+        expect(options).to.eql({ presetId: 'createIssue' });
+      }
+    ));
 
   });
 

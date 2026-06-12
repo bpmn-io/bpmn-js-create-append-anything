@@ -138,5 +138,330 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "GitHub Outbound Connector",
+    "id": "io.camunda.connectors.GitHub.v1",
+    "version": 10,
+    "engines": {
+      "camunda": "^8.7"
+    },
+    "description": "Switch between GitHub Issues and Branches operations",
+    "keywords": [
+      "create issue",
+      "get issue",
+      "update issue",
+      "search issues",
+      "get branch",
+      "list branches",
+      "merge branch"
+    ],
+    "icon": {
+      "contents": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%3Crect%20width%3D%2218%22%20height%3D%2218%22%20rx%3D%224%22%20fill%3D%22%2324292f%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M9%203.6a5.4%205.4%200%200%200-1.706%2010.524c.27.05.369-.117.369-.26l-.007-.92c-1.502.327-1.819-.724-1.819-.724-.245-.624-.599-.79-.599-.79-.49-.335.037-.328.037-.328.542.038.827.557.827.557.482.825%201.264.587%201.572.449.049-.349.189-.587.343-.722-1.2-.137-2.46-.6-2.46-2.67%200-.59.21-1.072.557-1.45-.056-.137-.242-.687.053-1.43%200%200%20.454-.146%201.488.554a5.18%205.18%200%200%201%202.71%200c1.034-.7%201.487-.554%201.487-.554.295.743.11%201.293.054%201.43.347.378.556.86.556%201.45%200%202.075-1.263%202.531-2.466%202.665.194.167.366.496.366%201l-.005%201.482c0%20.144.097.312.371.259A5.4%205.4%200%200%200%209%203.6z%22%2F%3E%3C%2Fsvg%3E"
+    },
+    "steps": [
+      {
+        "name": "Issues",
+        "description": "Manage GitHub issues",
+        "steps": [
+          {
+            "name": "Create an issue",
+            "description": "Create a new GitHub issue",
+            "keywords": [
+              "create issue",
+              "open ticket",
+              "github",
+              "issues"
+            ],
+            "presetId": "createIssue"
+          },
+          {
+            "name": "Create an issue comment",
+            "description": "Add a comment to an existing issue",
+            "keywords": [
+              "create issue comment",
+              "comment on issue",
+              "github",
+              "issues"
+            ],
+            "presetId": "createIssueComment"
+          },
+          {
+            "name": "Get an issue",
+            "description": "Get details of a specific issue",
+            "keywords": [
+              "get issue",
+              "fetch issue",
+              "github",
+              "issues"
+            ],
+            "presetId": "getIssue"
+          },
+          {
+            "name": "List commits",
+            "description": "List commits in a repository",
+            "keywords": [
+              "list commits",
+              "github",
+              "issues"
+            ],
+            "presetId": "listCommits"
+          },
+          {
+            "name": "Search issues and pull requests",
+            "description": "Search issues and pull requests across GitHub",
+            "keywords": [
+              "search issues",
+              "search pull requests",
+              "find issues",
+              "github",
+              "issues"
+            ],
+            "presetId": "searchIssues"
+          },
+          {
+            "name": "Update an issue",
+            "description": "Update an existing issue",
+            "keywords": [
+              "update issue",
+              "edit issue",
+              "github",
+              "issues"
+            ],
+            "presetId": "updateIssue"
+          }
+        ]
+      },
+      {
+        "name": "Branches",
+        "description": "Manage repository branches",
+        "steps": [
+          {
+            "name": "Get a branch",
+            "description": "Get details of a specific branch",
+            "keywords": [
+              "get branch",
+              "fetch branch",
+              "github",
+              "branches"
+            ],
+            "presetId": "getBranch"
+          },
+          {
+            "name": "List branches",
+            "description": "List all branches in a repository",
+            "keywords": [
+              "list branches",
+              "get branches",
+              "github",
+              "branches"
+            ],
+            "presetId": "listBranches"
+          },
+          {
+            "name": "Merge a branch",
+            "description": "Merge one branch into another",
+            "keywords": [
+              "merge branch",
+              "github",
+              "branches"
+            ],
+            "presetId": "mergeBranch"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "id": "createIssue",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "createIssue"
+        }
+      },
+      {
+        "id": "createIssueComment",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "createIssueComment"
+        }
+      },
+      {
+        "id": "getIssue",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "getIssue"
+        }
+      },
+      {
+        "id": "listCommits",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "listCommits"
+        }
+      },
+      {
+        "id": "searchIssues",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "searchIssues"
+        }
+      },
+      {
+        "id": "updateIssue",
+        "properties": {
+          "operationGroup": "issues",
+          "issueOperationType": "updateIssue"
+        }
+      },
+      {
+        "id": "getBranch",
+        "properties": {
+          "operationGroup": "branches",
+          "branchOperationType": "getBranch"
+        }
+      },
+      {
+        "id": "listBranches",
+        "properties": {
+          "operationGroup": "branches",
+          "branchOperationType": "listBranches"
+        }
+      },
+      {
+        "id": "mergeBranch",
+        "properties": {
+          "operationGroup": "branches",
+          "branchOperationType": "mergeBranch"
+        }
+      }
+    ],
+    "icon": {
+      "contents": "data:image/svg+xml;utf8,%3Csvg width='98' height='96' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z' fill='%2324292f'/%3E%3C/svg%3E"
+    },
+    "documentationRef": "https://docs.camunda.io/docs/components/connectors/out-of-the-box-connectors/github/?github=outbound",
+    "category": {
+      "id": "connectors",
+      "name": "Connectors"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "groups": [
+      {
+        "id": "operation",
+        "label": "Operation"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "io.camunda:http-json:1",
+        "binding": {
+          "type": "zeebe:taskDefinition",
+          "property": "type"
+        }
+      },
+      {
+        "label": "Operation group",
+        "id": "operationGroup",
+        "group": "operation",
+        "description": "Choose operation group",
+        "value": "issues",
+        "type": "Dropdown",
+        "choices": [
+          {
+            "name": "Issues",
+            "value": "issues"
+          },
+          {
+            "name": "Branches",
+            "value": "branches"
+          }
+        ],
+        "binding": {
+          "type": "zeebe:input",
+          "name": "operationGroup"
+        }
+      },
+      {
+        "label": "Operation type",
+        "id": "branchOperationType",
+        "group": "operation",
+        "type": "Dropdown",
+        "value": "listBranches",
+        "choices": [
+          {
+            "name": "Get a branch",
+            "value": "getBranch"
+          },
+          {
+            "name": "List branches",
+            "value": "listBranches"
+          },
+          {
+            "name": "Merge a branch",
+            "value": "mergeBranch"
+          }
+        ],
+        "condition": {
+          "property": "operationGroup",
+          "oneOf": [
+            "branches"
+          ]
+        },
+        "binding": {
+          "type": "zeebe:input",
+          "name": "operationType"
+        }
+      },
+      {
+        "label": "Operation type",
+        "id": "issueOperationType",
+        "group": "operation",
+        "type": "Dropdown",
+        "value": "createIssue",
+        "choices": [
+          {
+            "name": "Create an issue",
+            "value": "createIssue"
+          },
+          {
+            "name": "Create an issue comment",
+            "value": "createIssueComment"
+          },
+          {
+            "name": "Get an issue",
+            "value": "getIssue"
+          },
+          {
+            "name": "List commits",
+            "value": "listCommits"
+          },
+          {
+            "name": "Search issues and pull requests",
+            "value": "searchIssues"
+          },
+          {
+            "name": "Update an issue",
+            "value": "updateIssue"
+          }
+        ],
+        "condition": {
+          "property": "operationGroup",
+          "oneOf": [
+            "issues"
+          ]
+        },
+        "binding": {
+          "type": "zeebe:input",
+          "name": "operationType"
+        }
+      }
+    ]
   }
 ]
