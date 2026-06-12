@@ -6,10 +6,11 @@ import {
 } from 'test/TestHelper';
 
 import { expect } from 'chai';
-import { spy } from 'sinon';
+import { spy, stub } from 'sinon';
 
 import {
-  query as domQuery
+  query as domQuery,
+  queryAll as domQueryAll
 } from 'min-dom';
 
 import {
@@ -272,6 +273,73 @@ describe('<ElementTemplatesAppendProvider>', function() {
       expect(entry?.search).to.be.eql([ 'first keyword', 'another keyword' ]);
     }));
 
+
+    it('should find all presets', inject(
+      async function(elementRegistry, popupMenu) {
+
+        // given
+        const task = elementRegistry.get('Task_1');
+
+        openPopup(task);
+
+        // when
+        await typeSearch('github');
+
+        // then
+        const results = getSearchResults();
+        expect(results).to.have.length(9);
+      }
+    ));
+
+  });
+
+
+  describe('steps and presets', function() {
+
+    it('should expose nested entries for a template with steps', inject(function(elementRegistry) {
+
+      // given
+      const task = elementRegistry.get('Task_1');
+
+      // when
+      openPopup(task);
+
+      // then
+      const entry = getEntries()['append.template-io.camunda.connectors.GitHub.v1'];
+
+      expect(entry.entries).to.exist;
+      expect(entry.action).not.to.exist;
+    }));
+
+
+    it('should create element with the selected preset', inject(
+      function(elementRegistry, elementTemplates, autoPlace) {
+
+        // given
+        const task = elementRegistry.get('Task_1');
+
+        openPopup(task);
+
+        const createElement = stub(elementTemplates, 'createElement');
+        stub(autoPlace, 'append');
+
+        // Issues > Create an issue
+        const leaf = getEntries()['append.template-io.camunda.connectors.GitHub.v1']
+          .entries['step-0'].entries['step-0'];
+
+        // when
+        leaf.action.click();
+
+        // then
+        expect(createElement).to.have.been.calledOnce;
+
+        const [ template, options ] = createElement.firstCall.args;
+
+        expect(template.id).to.equal('io.camunda.connectors.GitHub.v1');
+        expect(options).to.eql({ presetId: 'createIssue' });
+      }
+    ));
+
   });
 
 });
@@ -285,6 +353,8 @@ function openPopup(element, offset) {
   getBpmnJS().invoke(function(popupMenu) {
     popupMenu.open(element, 'bpmn-append', {
       x: element.x, y: element.y
+    }, {
+      search: true
     });
 
   });
@@ -299,6 +369,20 @@ function queryEntry(id) {
 function getMenuContainer() {
   const popup = getBpmnJS().get('popupMenu');
   return popup._current.container;
+}
+
+function typeSearch(value) {
+  const input = domQuery('.djs-popup-search input', getMenuContainer());
+
+  input.value = value;
+  input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+
+  // wait for the popup menu to re-render
+  return new Promise(resolve => setTimeout(resolve, 50));
+}
+
+function getSearchResults() {
+  return domQueryAll('.djs-popup-results .entry', getMenuContainer());
 }
 
 function triggerAction(id, action = 'click') {

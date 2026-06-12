@@ -796,5 +796,42 @@
       "first keyword",
       "another keyword"
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Steps Template",
+    "id": "example.StepsTemplate",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "steps:1",
+        "binding": { "type": "zeebe:taskDefinition:type" }
+      },
+      {
+        "id": "operationType",
+        "type": "String",
+        "value": "",
+        "binding": { "type": "zeebe:property", "name": "operationType" }
+      }
+    ],
+    "steps": [
+      {
+        "name": "Issues",
+        "steps": [
+          { "name": "Create Issue", "presetId": "createIssue" },
+          { "name": "Delete Issue", "presetId": "deleteIssue" }
+        ]
+      }
+    ],
+    "presets": [
+      { "id": "createIssue", "properties": { "operationType": "createIssue" } },
+      { "id": "deleteIssue", "properties": { "operationType": "deleteIssue" } }
+    ]
   }
 ]
