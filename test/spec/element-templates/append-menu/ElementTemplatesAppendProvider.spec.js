@@ -8,6 +8,8 @@ import {
 import { expect } from 'chai';
 import { spy, stub } from 'sinon';
 
+import { fireEvent, waitFor } from '@testing-library/preact';
+
 import {
   query as domQuery,
   queryAll as domQueryAll
@@ -275,7 +277,7 @@ describe('<ElementTemplatesAppendProvider>', function() {
 
 
     it('should find all presets', inject(
-      async function(elementRegistry, popupMenu) {
+      async function(elementRegistry) {
 
         // given
         const task = elementRegistry.get('Task_1');
@@ -283,11 +285,12 @@ describe('<ElementTemplatesAppendProvider>', function() {
         openPopup(task);
 
         // when
-        await typeSearch('github');
+        search('github');
 
         // then
-        const results = getSearchResults();
-        expect(results).to.have.length(9);
+        await waitFor(() => {
+          expect(getSearchResults()).to.have.length(9);
+        });
       }
     ));
 
@@ -371,14 +374,10 @@ function getMenuContainer() {
   return popup._current.container;
 }
 
-function typeSearch(value) {
+function search(value) {
   const input = domQuery('.djs-popup-search input', getMenuContainer());
 
-  input.value = value;
-  input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-
-  // wait for the popup menu to re-render
-  return new Promise(resolve => setTimeout(resolve, 50));
+  fireEvent.keyUp(input, { target: { value } });
 }
 
 function getSearchResults() {
