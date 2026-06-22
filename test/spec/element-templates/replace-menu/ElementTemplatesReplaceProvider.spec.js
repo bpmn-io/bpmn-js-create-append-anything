@@ -311,7 +311,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
       openPopup(task);
 
       // then
-      const entry = getEntries()['replace.template-example.StepsTemplate'];
+      const entry = getEntry('replace.template-example.StepsTemplate');
 
       expect(entry.entries).to.exist;
       expect(entry.action).not.to.exist;
@@ -329,8 +329,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
         const applyTemplate = stub(elementTemplates, 'applyTemplate');
 
         // Issues > Create Issue
-        const leaf = getEntries()['replace.template-example.StepsTemplate']
-          .entries['step-0'].entries['step-0'];
+        const leaf = getEntry('replace.template-example.StepsTemplate', 'step-0', 'step-0');
 
         // when
         leaf.action();
@@ -360,7 +359,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
         openPopup(task);
 
         // then
-        const entry = getEntries()['replace.template-example.StepsTemplate'];
+        const entry = getEntry('replace.template-example.StepsTemplate');
 
         expect(entry).to.exist;
         expect(entry.entries).to.exist;
@@ -383,8 +382,7 @@ describe('<ElementTemplatesReplaceProvider>', function() {
         const applyTemplate = stub(elementTemplates, 'applyTemplate');
 
         // Issues > Delete Issue
-        const leaf = getEntries()['replace.template-example.StepsTemplate']
-          .entries['step-0'].entries['step-1'];
+        const leaf = getEntry('replace.template-example.StepsTemplate', 'step-0', 'step-1');
 
         // when
         leaf.action();
@@ -453,10 +451,13 @@ function getEntries() {
   return popupMenu._current.entries;
 }
 
-function getEntry(id) {
+function getEntry(rootId, ...nestedIds) {
   const popupMenu = getBpmnJS().get('popupMenu');
 
-  return popupMenu._getEntry(id);
+  return nestedIds.reduce(
+    (entry, id) => entry.entries[id],
+    popupMenu._getEntry(rootId)
+  );
 }
 
 function getTemplateEntries() {

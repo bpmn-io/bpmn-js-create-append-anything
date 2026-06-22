@@ -308,7 +308,7 @@ describe('<ElementTemplatesAppendProvider>', function() {
       openPopup(task);
 
       // then
-      const entry = getEntries()['append.template-io.camunda.connectors.GitHub.v1'];
+      const entry = getEntry('append.template-io.camunda.connectors.GitHub.v1');
 
       expect(entry.entries).to.exist;
       expect(entry.action).not.to.exist;
@@ -327,8 +327,7 @@ describe('<ElementTemplatesAppendProvider>', function() {
         stub(autoPlace, 'append');
 
         // Issues > Create an issue
-        const leaf = getEntries()['append.template-io.camunda.connectors.GitHub.v1']
-          .entries['step-0'].entries['step-0'];
+        const leaf = getEntry('append.template-io.camunda.connectors.GitHub.v1', 'step-0', 'step-0');
 
         // when
         leaf.action.click();
@@ -398,6 +397,15 @@ function triggerAction(id, action = 'click') {
 function getEntries() {
   const popupMenu = getBpmnJS().get('popupMenu');
   return popupMenu._current.entries;
+}
+
+function getEntry(rootId, ...nestedIds) {
+  const popupMenu = getBpmnJS().get('popupMenu');
+
+  return nestedIds.reduce(
+    (entry, id) => entry.entries[id],
+    popupMenu._getEntry(rootId)
+  );
 }
 
 function placeDragElement(element, action) {
