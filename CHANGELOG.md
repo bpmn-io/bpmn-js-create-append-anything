@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.0
+
+* `FEAT`: support multi-step pop-up for templates ([#78](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/78))
+
 ## 1.2.0
 
 * `FEAT`: auto-attach boundary events to the active element ([#69](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/69))
