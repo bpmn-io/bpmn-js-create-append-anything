@@ -91,7 +91,7 @@ export function insertCoreStyles() {
 export function insertBpmnStyles() {
   insertCSS(
     'diagram.css',
-    require('bpmn-js/dist/assets/diagram-js.css').default
+    require('diagram-js/assets/diagram-js.css').default
   );
 
   // @barmac: this fails before bpmn-js@9
