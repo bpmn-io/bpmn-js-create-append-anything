@@ -76,7 +76,7 @@
     "rollup": "^4.62.2",
     "sinon": "^22.0.0",
     "sinon-chai": "^4.0.1",
-    "webpack": "^5.106.2",
+    "webpack": "^5.107.2",
     "zeebe-bpmn-moddle": "^1.16.0"
   }
 }
