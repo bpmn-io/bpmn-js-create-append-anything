@@ -22,7 +22,7 @@ import { getBusinessObject } from 'bpmn-js/lib/util/ModelUtil';
 
 describe('features/create-append-anything - append menu provider', function() {
 
-  const diagramXML = require('./AppendMenuProvider.bpmn').default;
+  const diagramXML = require('./AppendMenuProvider.bpmn');
 
   beforeEach(bootstrapModeler(diagramXML, {
     additionalModules: [

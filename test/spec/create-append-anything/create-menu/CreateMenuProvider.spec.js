@@ -19,7 +19,7 @@ import CreateMenuModule from 'lib/create-append-anything/create-menu';
 
 describe('features/popup-menu - create menu provider', function() {
 
-  const diagramXML = require('./CreateMenuProvider.bpmn').default;
+  const diagramXML = require('./CreateMenuProvider.bpmn');
 
   beforeEach(
     bootstrapModeler(diagramXML, {

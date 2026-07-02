@@ -10,7 +10,7 @@ import AppendMenuModule from 'lib/create-append-anything/append-menu';
 
 describe('features/create-append-anything - rules', function() {
 
-  const diagramXML = require('./AppendRules.bpmn').default;
+  const diagramXML = require('./AppendRules.bpmn');
 
   beforeEach(bootstrapModeler(diagramXML, {
     additionalModules: [

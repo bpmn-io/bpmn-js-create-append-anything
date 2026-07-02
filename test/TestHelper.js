@@ -74,42 +74,42 @@ export function clickInput(input) {
 export function insertCoreStyles() {
   insertCSS(
     'properties-panel.css',
-    require('@bpmn-io/properties-panel/dist/assets/properties-panel.css').default
+    require('@bpmn-io/properties-panel/dist/assets/properties-panel.css')
   );
 
   insertCSS(
     'element-templates.css',
-    require('bpmn-js-element-templates/dist/assets/element-templates.css').default
+    require('bpmn-js-element-templates/dist/assets/element-templates.css')
   );
 
   insertCSS(
     'test.css',
-    require('./test.css').default
+    require('./test.css')
   );
 }
 
 export function insertBpmnStyles() {
   insertCSS(
     'diagram.css',
-    require('bpmn-js/dist/assets/diagram-js.css').default
+    require('bpmn-js/dist/assets/diagram-js.css')
   );
 
   // @barmac: this fails before bpmn-js@9
   if (bpmnJsSatisfies('>=9')) {
     insertCSS(
       'bpmn-js.css',
-      require('bpmn-js/dist/assets/bpmn-js.css').default
+      require('bpmn-js/dist/assets/bpmn-js.css')
     );
   }
 
   insertCSS(
     'bpmn-font.css',
-    require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css').default
+    require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css')
   );
 
   insertCSS(
     'element-template-chooser.css',
-    require('@bpmn-io/element-template-chooser/dist/element-template-chooser.css').default
+    require('@bpmn-io/element-template-chooser/dist/element-template-chooser.css')
   );
 }
 
