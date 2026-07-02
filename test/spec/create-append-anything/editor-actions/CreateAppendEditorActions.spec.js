@@ -16,7 +16,7 @@ import { CreateAppendAnythingModule } from 'lib/';
 
 describe('features/create-append-anything - editor actions', function() {
 
-  const diagramXML = require('test/fixtures/simple.bpmn').default;
+  const diagramXML = require('test/fixtures/simple.bpmn');
 
   beforeEach(
     bootstrapModeler(diagramXML, {

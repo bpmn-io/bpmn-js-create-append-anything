@@ -14,7 +14,7 @@ import { createMoveEvent } from 'diagram-js/lib/features/mouse/Mouse';
 
 describe('features/palette', function() {
 
-  const diagramXML = require('./CreateMenuProvider.bpmn').default;
+  const diagramXML = require('./CreateMenuProvider.bpmn');
 
   beforeEach(bootstrapModeler(diagramXML, {
     additionalModules: [ CreateMenuModule ]

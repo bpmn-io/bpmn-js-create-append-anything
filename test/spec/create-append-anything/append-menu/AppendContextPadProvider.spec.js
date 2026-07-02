@@ -22,7 +22,7 @@ describe('features/create-append-anything - append menu provider', function() {
 
   describe('append', function() {
 
-    const diagramXML = require('../../../fixtures/simple.bpmn').default;
+    const diagramXML = require('../../../fixtures/simple.bpmn');
 
     beforeEach(bootstrapModeler(diagramXML, {
       additionalModules: [

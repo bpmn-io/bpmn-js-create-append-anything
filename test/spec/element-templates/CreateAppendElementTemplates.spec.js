@@ -113,7 +113,7 @@ describe('<CreateAppendAnything>', function() {
   (singleStart ? it.only : it)('should import simple process', async function() {
 
     // given
-    const diagramXml = require('test/fixtures/simple.bpmn').default;
+    const diagramXml = require('test/fixtures/simple.bpmn');
 
     // when
     const { error, modeler } = await createModeler(diagramXml);

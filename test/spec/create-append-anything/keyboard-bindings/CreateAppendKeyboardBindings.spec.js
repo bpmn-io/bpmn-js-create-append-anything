@@ -22,7 +22,7 @@ import { CreateAppendAnythingModule } from 'lib';
 
 describe('features/create-append-anything - keyboard bindings', function() {
 
-  const diagramXML = require('test/fixtures/simple.bpmn').default;
+  const diagramXML = require('test/fixtures/simple.bpmn');
 
   beforeEach(
     bootstrapModeler(diagramXML, {
