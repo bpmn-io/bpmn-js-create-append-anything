@@ -90,6 +90,22 @@ describe('features/create-append-anything - rules', function() {
     }));
 
 
+    it('should not allow for compensation activity', inject(function(elementFactory, rules) {
+
+      // given
+      const element = elementFactory.createShape({
+        type: 'bpmn:Task',
+        isForCompensation: true
+      });
+
+      // when
+      const result = rules.allowed('shape.append', { element });
+
+      // then
+      expect(result).to.be.false;
+    }));
+
+
     describe('connections', function() {
 
       it('should not allow for sequence flows', inject(function(elementRegistry, rules) {
