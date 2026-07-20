@@ -6,6 +6,8 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.1
+
 * `FIX`: disallow append action for compensation activities ([#86](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/86))
 
 ## 1.3.0
