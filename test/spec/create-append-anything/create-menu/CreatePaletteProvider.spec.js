@@ -7,6 +7,8 @@ import {
 import { expect } from 'chai';
 import { spy } from 'sinon';
 
+import { query as domQuery } from 'min-dom';
+
 import CreateMenuModule from 'lib/create-append-anything/create-menu';
 
 import { createMoveEvent } from 'diagram-js/lib/features/mouse/Mouse';
@@ -38,6 +40,16 @@ describe('features/palette', function() {
       expect(args[1]).to.eq('bpmn-create');
     }));
 
+
+    it('should open create menu with default width', inject(function() {
+
+      // when
+      triggerPaletteEntry('create');
+
+      // then
+      expect(getComputedStyle(getPopupMenu()).width).to.eql('300px');
+    }));
+
   });
 
 });
@@ -53,4 +65,10 @@ function triggerPaletteEntry(id) {
       entry.action.click(createMoveEvent(0, 0));
     }
   });
+}
+
+function getPopupMenu() {
+  const popup = getBpmnJS().get('popupMenu');
+
+  return popup._current && domQuery('.djs-popup', popup._current.container);
 }
