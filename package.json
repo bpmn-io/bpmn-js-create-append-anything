@@ -42,7 +42,7 @@
   ],
   "module": "dist/index.es.js",
   "peerDependencies": {
-    "diagram-js": ">= 15.18.0"
+    "diagram-js": ">= 15.23.0"
   },
   "devDependencies": {
     "@bpmn-io/element-template-chooser": "^3.0.0",
@@ -52,7 +52,7 @@
     "@testing-library/preact": "^3.2.4",
     "babel-loader": "^10.1.1",
     "babel-plugin-istanbul": "^8.0.0",
-    "bpmn-js": "^18.21.0",
+    "bpmn-js": "^18.22.0",
     "bpmn-js-element-templates": "^2.27.0",
     "bpmn-js-properties-panel": "^5.60.0",
     "chai": "^6.2.2",
