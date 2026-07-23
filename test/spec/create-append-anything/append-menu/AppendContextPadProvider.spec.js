@@ -52,6 +52,21 @@ describe('features/create-append-anything - append menu provider', function() {
     }));
 
 
+    it('should open append menu with default width', inject(function(elementRegistry, contextPad) {
+
+      // given
+      const element = elementRegistry.get('StartEvent_1');
+
+      contextPad.open(element);
+
+      // when
+      contextPad.trigger('click', padEvent('append'));
+
+      // then
+      expect(getComputedStyle(getPopupMenu()).width).to.eql('300px');
+    }));
+
+
     it('should hide icon if append is disallowed', inject(
       function(elementRegistry, contextPad, customRules) {
 
