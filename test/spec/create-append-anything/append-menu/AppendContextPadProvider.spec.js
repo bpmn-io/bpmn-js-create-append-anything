@@ -67,6 +67,25 @@ describe('features/create-append-anything - append menu provider', function() {
     }));
 
 
+    it('should allow overriding append menu width via css variable', inject(
+      function(elementRegistry, contextPad, canvas) {
+
+        // given
+        const element = elementRegistry.get('StartEvent_1');
+
+        canvas.getContainer().style.setProperty('--bpmn-append-popup-width', '400px');
+
+        contextPad.open(element);
+
+        // when
+        contextPad.trigger('click', padEvent('append'));
+
+        // then
+        expect(getComputedStyle(getPopupMenu()).width).to.eql('400px');
+      }
+    ));
+
+
     it('should hide icon if append is disallowed', inject(
       function(elementRegistry, contextPad, customRules) {
 
