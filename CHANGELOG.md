@@ -6,14 +6,18 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
-## 1.3.1
+## 2.0.0
 
-* `FIX`: disallow append action for compensation activities ([#86](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/86))
-* `FEAT`: allow overriding the create/append menu width via css variable
+* `FEAT`: allow overriding the create/append menu width via css variable ([#88](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/88))
+* `FEAT`: reuse shared menu entries list from `bpmn-js` ([#88](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/88))
 
 ### Breaking Changes
 
 * Require `bpmn-js@18.22.0` as a peer dependency ([#88](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/88))
+
+## 1.3.1
+
+* `FIX`: disallow append action for compensation activities ([#86](https://github.com/bpmn-io/bpmn-js-create-append-anything/issues/86))
 
 ## 1.3.0
 
