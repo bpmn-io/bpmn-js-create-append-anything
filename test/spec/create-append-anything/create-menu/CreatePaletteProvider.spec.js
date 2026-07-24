@@ -50,6 +50,19 @@ describe('features/palette', function() {
       expect(getComputedStyle(getPopupMenu()).width).to.eql('300px');
     }));
 
+
+    it('should allow overriding create menu width via css variable', inject(function(canvas) {
+
+      // given
+      canvas.getContainer().style.setProperty('--bpmn-create-popup-width', '400px');
+
+      // when
+      triggerPaletteEntry('create');
+
+      // then
+      expect(getComputedStyle(getPopupMenu()).width).to.eql('400px');
+    }));
+
   });
 
 });
