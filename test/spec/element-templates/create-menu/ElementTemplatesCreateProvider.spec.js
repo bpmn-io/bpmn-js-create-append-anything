@@ -37,7 +37,7 @@ import {
 
 import { CreateAppendElementTemplatesModule } from 'lib/';
 
-import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
+import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe.json';
 
 
 describe('<ElementTemplatesCreateProviderSpec>', function() {
