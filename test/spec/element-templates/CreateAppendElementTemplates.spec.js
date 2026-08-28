@@ -24,7 +24,7 @@ import {
 
 import { CreateAppendElementTemplatesModule, CreateAppendAnythingModule } from 'lib/';
 
-import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe';
+import ZeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe.json';
 
 import ElementTemplateChooserModule from '@bpmn-io/element-template-chooser';
 
