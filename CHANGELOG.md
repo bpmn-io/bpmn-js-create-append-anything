@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.1.0
+
+* `DEPS`: update peer deps to bpmn-js `>= 18.27.0` and diagram-js `>= 15.26.0`
+
 ## 2.0.0
 
 * `FEAT`: allow overriding the create/append menu width via css variable ([#88](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/88))
