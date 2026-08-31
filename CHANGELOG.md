@@ -8,6 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 2.1.0
 
+* `FIX`: add tooltip with shortcut for 'Create element' menu entry ([#91](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/91))
 * `DEPS`: update peer deps to bpmn-js `>= 18.27.0` and diagram-js `>= 15.26.0`
 
 ## 2.0.0
