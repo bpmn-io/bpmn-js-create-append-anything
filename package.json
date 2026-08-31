@@ -42,8 +42,8 @@
   ],
   "module": "dist/index.es.js",
   "peerDependencies": {
-    "bpmn-js": ">= 18.22.0",
-    "diagram-js": ">= 15.23.0"
+    "bpmn-js": ">= 18.27.0",
+    "diagram-js": ">= 15.26.0"
   },
   "devDependencies": {
     "@bpmn-io/element-template-chooser": "^3.0.0",
