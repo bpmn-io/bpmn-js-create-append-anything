@@ -6,6 +6,8 @@ All notable changes to [bpmn-js-create-append-anything](https://github.com/bpmn-
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.2.0
+
 * `FEAT`: list less common task and gateway options last ([#93](https://github.com/bpmn-io/bpmn-js-create-append-anything/pull/93))
 
 ## 2.1.0
